@@ -32,10 +32,10 @@
           </select>
 
           <!-- Search input in the middle -->
-          <input type="text" class="search-input" />
+          <input type="text" id="textbox3" class="search-input" />
 
           <!-- Send button on the right -->
-          <button class="send-btn">Send</button>
+          <button class="send-btn" onclick="sendRequest()">Send</button>
         </div>
       </div>
 
@@ -55,9 +55,9 @@
       <div class="link-container" id="link-container-1">
         Query Parameters
         <br />
-        <input type="checkbox" />
-        <input type="text" placeholder="Parameter" />
-        <input type="text" placeholder="Value" />
+        <input type="checkbox" id="checkbox1" onclick="updateTextbox3()" />
+        <input id="textbox1" type="text" placeholder="Parameter" />
+        <input id="textbox2" type="text" placeholder="Value" />
         <button class="add-checkbox-button" onclick="addCheckbox()">Add</button>
       </div>
 
@@ -79,7 +79,10 @@
           border: none;
         "
       />
-      <div class="row"></div>
+      <pre id="resultContainer"></pre>
+      <div class="row">
+        
+      </div>
     </div>
     <script src="scripts.js"></script>
     <script>
@@ -102,6 +105,25 @@
         linkContainer1.appendChild(checkbox);
         linkContainer1.appendChild(parameterInput);
         linkContainer1.appendChild(valueInput);
+      }
+
+      function updateTextbox3() {
+        const textbox1 = document.getElementById("textbox1");
+        const textbox2 = document.getElementById("textbox2");
+        const textbox3 = document.getElementById("textbox3");
+        const checkbox1 = document.getElementById("checkbox1");
+
+        // Check if the checkbox is checked
+        if (checkbox1.checked) {
+          textbox3.value =
+            "http://localhost:3000/api/" +
+            "?" +
+            textbox1.value +
+            "=" +
+            textbox2.value;
+        } else {
+          textbox3.value = "http://localhost:3000/api/";
+        }
       }
     </script>
   </body>
