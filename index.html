@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="col">
+      <div
+        class="row"
+        style="
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+          height: 50px;
+        "
+      >
+        <div class="search-container">
+          <!-- Dropdown button on the left -->
+          <select class="dropdown">
+            <option value="option1">GET</option>
+            <option value="option2">POST</option>
+            <option value="option3">PUT</option>
+            <option value="option1">DELETE</option>
+            <option value="option2">PATCH</option>
+            <option value="option3">HEAD</option>
+            <option value="option1">OPTIONS</option>
+            <option value="option2">PROPFIND</option>
+            <option value="option3">CUSTOM</option>
+          </select>
+
+          <!-- Search input in the middle -->
+          <input type="text" class="search-input" />
+
+          <!-- Send button on the right -->
+          <button class="send-btn">Send</button>
+        </div>
+      </div>
+
+      <!--nav links-->
+      <nav>
+        <a href="#">Query</a>
+        <a href="#">Headers</a>
+        <a href="#">Auth</a>
+        <a href="#">Body</a>
+        <a href="#">Tests</a>
+        <a href="#">Pre Run</a>
+      </nav>
+      <div class="indicator-line">
+        <div class="indicator"></div>
+      </div>
+
+      <div class="link-container" id="link-container-1">
+        Query Parameters
+        <br />
+        <input type="checkbox" />
+        <input type="text" placeholder="Parameter" />
+        <input type="text" placeholder="Value" />
+        <button class="add-checkbox-button" onclick="addCheckbox()">Add</button>
+      </div>
+
+      <div class="link-container" id="link-container-2">HTTP Headers</div>
+      <div class="link-container" id="link-container-3">Container for Auth</div>
+      <div class="link-container" id="link-container-4">Container for Body</div>
+      <div class="link-container" id="link-container-5">
+        Container for Tests
+      </div>
+      <div class="link-container" id="link-container-6">
+        Container for Pre Run
+      </div>
+
+      <hr
+        style="
+          background-color: #484a4f;
+          height: 0.5px;
+          width: 100%;
+          border: none;
+        "
+      />
+      <div class="row"></div>
+    </div>
+    <script src="scripts.js"></script>
+    <script>
+      function addCheckbox() {
+        // Create new elements
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+
+        const parameterInput = document.createElement("input");
+        parameterInput.type = "text";
+        parameterInput.placeholder = "Parameter";
+
+        const valueInput = document.createElement("input");
+        valueInput.type = "text";
+        valueInput.placeholder = "Value";
+
+        // Append the new elements to link-container-1
+        const linkContainer1 = document.getElementById("link-container-1");
+        linkContainer1.appendChild(document.createElement("br"));
+        linkContainer1.appendChild(checkbox);
+        linkContainer1.appendChild(parameterInput);
+        linkContainer1.appendChild(valueInput);
+      }
+    </script>
+  </body>
+</html>
