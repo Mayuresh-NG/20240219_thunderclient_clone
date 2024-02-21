@@ -74,6 +74,7 @@ nav {
   display: flex;
   margin-left: 22px;
   position: relative;
+  width: fit-content;
 }
 
 nav a {
